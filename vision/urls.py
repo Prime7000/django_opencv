@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import include, path
+from my_app import urls as vision
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(vision, namespace='cv')),
+
 ]
 
 urlpatterns += static(

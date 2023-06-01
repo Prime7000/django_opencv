@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grayscale Image Converter</title>
+</head>
+<body>
+    <h1>Grayscale Image Converter</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Convert to Grayscale</button>
+    </form>
+    {% if grayscale_image %}
+        <h2>Grayscale Image</h2>
+        <img src="data:image/jpeg;base64,{{ grayscale_image }}" alt="Grayscale Image">
+    {% endif %}
+</body>
+</html>
